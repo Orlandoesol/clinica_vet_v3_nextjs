@@ -47,6 +47,17 @@ const config = {
   				'600': '#76828D',
   				'700': '#ABB8C4'
   			},
+			white: {
+			'100': '#FFFFFF',
+			'200': '#F7F7F7',
+			'300': '#EFEFEF',
+			'400': '#E0E0E0',
+			'500': '#D1D1D1',
+			'600': '#C2C2C2',
+			'700': '#B3B3B3',
+			'800': '#A4A4A4',
+			'900': '#959595'
+			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

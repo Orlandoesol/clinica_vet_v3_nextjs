@@ -17,13 +17,16 @@ export default function Home() {
         />
 
         <Patientform />
-        
-        <Link href="/?admin=true" className="text-white">
+
+        <div className="text-18-semibold text-white-100 mt-20 flex justify-between">
+        <p>
+          © 2025 Clinica Veterinaria
+        </p>
+        <Link href="/?admin=true" className="text-32-semibold text-white-100">
           Admin
         </Link>
-
-
-
+          
+        </div>
         </div>
 
       </section>
