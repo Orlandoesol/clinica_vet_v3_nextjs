@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import React from 'react'//rafce
-import { Button } from '@/components/ui/button'
+//import React from 'react'//rafce
+import { Button } from './ui/button'
 
 
 interface ButtonProps {
@@ -11,8 +11,11 @@ interface ButtonProps {
 
 const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
     return (
-        <Button type="submit" disabled={isLoading} className={className ??
-            "shad-primary-btn w-full"} >
+        <Button 
+        type="submit" 
+        disabled={isLoading} 
+        className={className ?? "shad-primary-btn w-fit"}
+        >
         {isLoading ? (
         <div className='flex items-center gap-4'>
             <Image
@@ -28,7 +31,7 @@ const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
         children 
         )}
         </Button>
-  )
+    )
 }
 
 export default SubmitButton

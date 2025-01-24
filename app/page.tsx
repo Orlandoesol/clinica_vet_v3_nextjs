@@ -19,7 +19,7 @@ export default function Home() {
         <Patientform />
 
         <div className="text-18-semibold text-white-100 mt-20 flex justify-between">
-        <p>
+        <p className="justify-end text-white-100 xl:text-left">
           © 2025 Clinica Veterinaria
         </p>
         <Link href="/?admin=true" className="text-32-semibold text-white-100">

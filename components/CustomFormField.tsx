@@ -1,11 +1,11 @@
 'use client'
 
 import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Control } from "react-hook-form"
@@ -54,10 +54,10 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
         return renderSkeleton(field);
     }
 
-    switch (fieldType) {
+    switch (props.fieldType) {
         case FormFieldType.INPUT:
             return (
-                <div className="flex rounded-md border bg-white-100 border-dark-400 bg-white">
+                <div className="flex rounded-md border bg-white-100">
                     {iconSrc && (
                         <Image
                         src={iconSrc}
@@ -71,7 +71,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
                         <Input 
                         placeholder={placeholder}
                         {...field}
-                        className="bg-white border-0 text-dark-200"
+                        className="shad-input border-0"
                         />
                     </FormControl>
 

@@ -241,15 +241,15 @@
 
   /* =====  SHADCN OVERRIDES */
   .shad-primary-btn {
-    @apply bg-green-500 text-white !important;
+    @apply bg-blue-700 text-white-100 !important;
   }
 
   .shad-danger-btn {
-    @apply bg-red-700 text-white !important;
+    @apply bg-red-700 text-white-100 !important;
   }
 
   .shad-gray-btn {
-    @apply border border-dark-500 cursor-pointer bg-blue-400 text-white !important;
+    @apply border border-dark-500 cursor-pointer bg-blue-400 text-white-100 !important;
   }
 
   .shad-input-label {
@@ -257,7 +257,7 @@
   }
 
   .shad-input {
-    @apply bg-blue-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    @apply bg-white-100 text-dark-300 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
   }
 
   .shad-input-icon {
