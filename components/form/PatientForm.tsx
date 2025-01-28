@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { useForm, FormProvider } from "react-hook-form"
 import { z } from "zod"
-import { Form } from "@/components/ui/form"
+//import { Form } from "@/components/ui/form"
 import CustomFormField, { FormFieldType } from "@/components/CustomFormField"
 import { Button } from "@/components/ui/button"
 import SubmitButton from "@/components/SubmitButton"
@@ -11,7 +11,6 @@ import { useState } from "react"
 import { UserFormValidation } from "@/lib/validation"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/lib/actions/patient.action"
-
 
 const Patientform = () => {
 
@@ -31,11 +30,11 @@ const Patientform = () => {
 
     const { handleSubmit, reset, control } = form;
 
-    async function onSubmit({name, email, phone}: z.infer<typeof UserFormValidation>) {
+    async function onSubmit(values: z.infer<typeof UserFormValidation>) {
       setIsLoading(true);
 
       try {
-        const userData = { name, email, phone };
+        const userData = { name: values.name, email: values.email, phone: values.phone };
 
         const user = await createUser(userData);
 
@@ -49,20 +48,20 @@ const Patientform = () => {
     }
 
     return (
-    <Form {...form}>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+    <FormProvider {...form}>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 text-white-100">
             <section className="mb-12 text-white-100 space-y-4">
-            <h1 className="hader text-white">Hi there 👋</h1>
-            <p className="text-white">Shedule your first appointment</p>
+            <h1 className="hader text-white-100">Hi there 👋</h1>
+            <p className="text-white-100">Shedule your first appointment</p>
             </section>
 
             <CustomFormField
             fieldType={FormFieldType.INPUT}
             control={control}
-            name="username"
+            name="name"
             label="Full Name"
             placeholder="Enter your full name"
-            iconSrc="assets/icons/user.svg"
+            iconSrc="/assets/icons/user.svg"
             iconAlt="user"
             />
 
@@ -72,7 +71,7 @@ const Patientform = () => {
             name="email"
             label="Email"
             placeholder="Enter your email"
-            iconSrc="assets/icons/email.svg"
+            iconSrc="/assets/icons/email.svg"
             iconAlt="user"
             />
 
@@ -88,7 +87,7 @@ const Patientform = () => {
             <Button type="button" className="ml-2 bg-blue-900 text-white-100" onClick={() => reset()}>Reset</Button>
         </form>
 
-    </Form>
+    </FormProvider>
 )
 }
 

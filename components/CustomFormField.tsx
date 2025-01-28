@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import {
     FormControl,
@@ -10,8 +10,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Control } from "react-hook-form"
 import Image from "next/image"
-import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
+import "react-phone-number-input/style.css"
+import PhoneInput from "react-phone-number-input"
 import { E164Number } from "libphonenumber-js/core";
 
 export enum FormFieldType {
@@ -74,7 +74,6 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
                         className="shad-input border-0"
                         />
                     </FormControl>
-
                 </div>
             )
         case FormFieldType.PHONE_INPUT:
@@ -88,7 +87,6 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
                 value={field.value as E164Number | undefined }
                 onChange={field.onChange}
                 className="input-phone"
-                
                 />
                 </FormControl>
             )

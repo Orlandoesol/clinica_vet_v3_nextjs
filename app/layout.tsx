@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         <ThemeProvider 
           attribute="class"
-          defaultTheme="blue"
+          defaultTheme="white"
         >
           {children}
         </ThemeProvider>

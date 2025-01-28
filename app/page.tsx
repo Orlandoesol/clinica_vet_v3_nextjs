@@ -37,10 +37,7 @@ export default function Home() {
           width={1000}
           alt="portada"
           className="side-img max-w-[50%]"
-
         />
-
-
     </div>
   )
 }

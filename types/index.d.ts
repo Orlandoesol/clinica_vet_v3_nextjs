@@ -17,22 +17,22 @@ declare interface User extends createUserParams {
 
 declare interface RegisterUserParams extends createUserParams {
     namePet: string;
-    birthDate: Date;
+    birthDate: date;
     gender: Gender;
     breed: string;
     species: string;
     address: string;
     emergencyContactName: string;
-    emergencyContactPhone: string;
+    emergencyContactNumber: string;
     primaryPhisician: string;
-    insurancePolicyNumber: string;
+    insurancePolicyNumber:string;
     identificationType: FormData | undefined;
-    idenityficationNumber: string | undefined;
+    identificationNumber: string | undefined;
     allergies: string | undefined;
     medicalHistory: string | undefined;
     currentMedication: string | undefined;
     treatmentConsent: boolean;
-    dataProtectionPolicy: boolean;
+    dataProtectionpolicy: boolean;
 }
 
 

@@ -7,22 +7,24 @@ import { users } from "../appwrite.config";
 // create appwrite user
 export const createUser = async (user: createUserParams) => {
     try {
-        const newuser = await users.create(
+        const newUser = await users.create(
             ID.unique(),
             user.email,
             user.phone,
             undefined,
-            user.name,
+            user.name
         );
-        return parseStringify(newuser);
+        console.log("User created successfully", newUser);
+
+        return parseStringify(newUser);
     } catch (error: any) {
 
-        if(error && error?.code === 404 ) {
-            const existingUser = await users.list([
+        if(error && error?.code === 409 ) {
+            const documents = await users.list([
                 Query.equal("email", [user.email]),
             ]);
 
-            return existingUser.users[0];
+            return documents?.users[0];
         }
         console.error("An error occurred while creating a new user" , error);
     }
