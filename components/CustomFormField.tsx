@@ -13,6 +13,8 @@ import Image from "next/image"
 import "react-phone-number-input/style.css"
 import PhoneInput from "react-phone-number-input"
 import { E164Number } from "libphonenumber-js/core";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export enum FormFieldType {
     INPUT = "input",
@@ -89,6 +91,25 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
                 className="input-phone"
                 />
                 </FormControl>
+            )
+        case FormFieldType.DATE_PICKER:
+            return(
+                <div className="flex rounded-md border border-dark-200 bg-white-100">
+                    {iconSrc && (
+                        <Image
+                            src={iconSrc}
+                            height={24}
+                            width={24}
+                            alt={iconAlt || "calendar"}
+                            className="ml-2"
+                        />
+                    )}
+                    <FormControl>
+                    <DatePicker 
+                        selected={field.value} 
+                        onChange={(date) => field.onChange(date)} />
+                    </FormControl>
+                </div>
             )
         default:
             break;
