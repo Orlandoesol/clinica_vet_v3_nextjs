@@ -101,8 +101,9 @@ const Registerform = ({ user }: {user: User}) => {
                 <p className="text-white-100">Let us know more about yourself</p>
             </section>
             <section className="mb-12 text-white-100 space-y-6">
-                <h1 className="mb-9 space-y-1">Welcome 👋</h1>
-                <p className="sub-header">Personal Information</p>
+                <div className="mb-9 space-y-1">
+                    <h2 className="sub-header">Personal Information.</h2>
+                </div>
             </section>
 
             <CustomFormField
@@ -170,15 +171,15 @@ const Registerform = ({ user }: {user: User}) => {
             <div className="flex flex-col gap-6 xl:flex-row">
 
             </div>
-            
+
             <div className="flex flex-col gap-6 xl:flex-row">
 
             </div>
-            
+
             <div className="flex flex-col gap-6 xl:flex-row">
 
             </div>
-            
+
 
             <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
             <Button type="button" className="ml-2 bg-blue-900 text-white-100" onClick={() => reset()}>Reset</Button>
