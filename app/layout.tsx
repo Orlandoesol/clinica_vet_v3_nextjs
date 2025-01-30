@@ -23,7 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={ cn('min-h-screen bg-blue-500 font-sans', fontSans.variable) }
+        className={ cn('min-h-screen bg-blue-500 font-sans', 
+        fontSans.variable) }
       >
         <ThemeProvider 
           attribute="class"

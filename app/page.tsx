@@ -8,27 +8,25 @@ export default function Home() {
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[496px]">
-        <Image
-          src="/assets/icons/logo.png"
-          height={1000}
-          width={1000}
-          alt="Logo Principal"
-          className="bm-12 h-24 w-fit"
-        />
+          <Image
+            src="/assets/icons/logo.png"
+            height={1000}
+            width={1000}
+            alt="Logo Principal"
+            className="bm-12 h-24 w-fit"
+          />
 
-        <Patientform />
+          <Patientform />
 
-        <div className="text-18-semibold text-white-100 mt-20 flex justify-between">
-        <p className="justify-end text-white-100 xl:text-left">
-          © 2025 Clinica Veterinaria
-        </p>
-        <Link href="/?admin=true" className="text-32-semibold text-white-100">
-          Admin
-        </Link>
-          
+          <div className="text-18-semibold text-white-100 mt-20 flex justify-between">
+            <p className="justify-end text-white-100 xl:text-left">
+              © 2025 Clinica Veterinaria
+            </p>
+            <Link href="/?admin=true" className="text-32-semibold text-white-100">
+              Admin
+            </Link> 
+          </div>
         </div>
-        </div>
-
       </section>
 
       <Image
@@ -41,4 +39,3 @@ export default function Home() {
     </div>
   )
 }
-

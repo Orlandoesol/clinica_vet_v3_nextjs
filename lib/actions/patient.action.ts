@@ -20,6 +20,7 @@ export const createUser = async (user: createUserParams) => {
     } catch (error: any) {
 
         if(error && error?.code === 409 ) {
+            // Check existing user
             const documents = await users.list([
                 Query.equal("email", [user.email]),
             ]);
@@ -30,6 +31,7 @@ export const createUser = async (user: createUserParams) => {
     }
 }
 
+// GET APPWRITE USER
 export const getUser = async (userId: string) => {
     try {
         const user = await users.get(userId);

@@ -1,8 +1,5 @@
 import Image from 'next/image'
-//import React from 'react'//rafce
 import { Button } from './ui/button'
-
-
 interface ButtonProps {
     isLoading: boolean,
     className?: string,

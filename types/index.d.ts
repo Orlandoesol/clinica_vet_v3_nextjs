@@ -5,6 +5,7 @@ declare type searchParamProps = {
 
 declare type Gender = "Male" | "Female"
 
+
 declare interface createUserParams {
     name: string;
     email: string;
@@ -34,5 +35,3 @@ declare interface RegisterUserParams extends createUserParams {
     treatmentConsent: boolean;
     dataProtectionpolicy: boolean;
 }
-
-
