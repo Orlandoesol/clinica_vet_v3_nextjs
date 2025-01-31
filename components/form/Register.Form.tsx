@@ -196,7 +196,7 @@ const Registerform = ({ user }: {user: User}) => {
                 />
             </div>
             
-            <div className="flex flex-col gap-6 xl:flex-row">
+            <div className="flex flex-col gap-6 xl:flex-row text-white-100">
                 <CustomFormField
                     fieldType={FormFieldType.SELECT}
                     control={form.control}

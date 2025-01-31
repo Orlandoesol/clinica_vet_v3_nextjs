@@ -39,7 +39,7 @@ const Register = async ({params: {userId}}: searchParamProps) => {
                 height={1000}
                 width={1000}
                 alt="register"
-                className="side-img max-w-[290px]"
+                className="side-img max-w-[390px]"
                 />
         </div>
     )

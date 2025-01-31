@@ -55,3 +55,48 @@ export const PatientFormValidation = z.object({
         message: "You must accept the Data Protection Policy"
     }),
 })
+
+export const CreateAppointmentSchema = z.object({
+    primaryPhisician: z.string()
+    .min(2, "Select at least one doctor")
+    .max(100, "Contact must be less than 100 characters long"),
+    schedule: z.coerce.date(),
+    reason: z.string()
+    .min(5, "Reason must be at least 5 characters long")
+    .max(500, "Reason must be less than 500 characters long"),
+    notes: z.string().optional(),
+    cancellationReason: z.string().optional(),
+})
+
+export const ScheduleAppointmentSchema = z.object({
+    primaryPhisician: z.string()
+    .min(2, "Select at least one doctor")
+    .max(100, "Contact must be less than 100 characters long"),
+    schedule: z.coerce.date(),
+    reason: z.string().optional(),
+    notes: z.string().optional(),
+    cancellationReason: z.string().optional(),
+})
+
+export const CancelAppointmentSchema = z.object({
+    primaryPhisician: z.string()
+    .min(2, "Select at least one doctor")
+    .max(100, "Contact must be less than 100 characters long"),
+    schedule: z.coerce.date(),
+    reason: z.string().optional(),
+    notes: z.string().optional(),
+    cancellationReason: z.string()
+    .min(2, "Select at least one doctor")
+    .max(100, "Contact must be less than 100 characters long"),
+})
+
+export function getAppointmentSchema( type: string) {
+    switch (type) {
+        case 'create':
+            return CreateAppointmentSchema;
+        case 'cancel':
+            return CancelAppointmentSchema;
+        default:
+            return ScheduleAppointmentSchema;
+    }
+}
