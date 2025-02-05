@@ -1,11 +1,12 @@
-import Appoinmentform from "@/components/form/Appointment.Form";
+import Appointmentform from "@/components/form/Appointment.Form";
 import { getPatient } from "@/lib/actions/patient.action";
 import { SearchParams } from "next/dist/server/request/search-params";
 import Image from "next/image";
-import Link from "next/link";
+//import Link from "next/link";
 
-export default async function NewAppointment({params: {userId}}: SearchParams) {
+const NewAppointment= async ({params: {userId}}: SearchParams) => {
     const patient = await getPatient(userId);
+
     return (
         <div className="flex h-screen max-h-screen">
         <section className="remove-scrollbar container my-auto">
@@ -18,7 +19,8 @@ export default async function NewAppointment({params: {userId}}: SearchParams) {
                 className="bm-12 h-24 w-fit"
             />
 
-            <Appoinmentform
+            <Appointmentform
+            patientId={patient?.$id}
             type="create"
             userId={userId}
             />
@@ -41,3 +43,5 @@ export default async function NewAppointment({params: {userId}}: SearchParams) {
         </div>
     )
 }
+
+export default NewAppointment;

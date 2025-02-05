@@ -13,7 +13,7 @@ export interface Patient extends Models.Document {
     address: string;
     emergencyContactName: string;
     emergencyContactNumber: string;
-    primaryPhisician: string;
+    primaryPhysician: string;
     insurancePolicyNumber:string;
     identificationType: FormData | undefined;
     identificationNumber: string | undefined;
@@ -22,4 +22,15 @@ export interface Patient extends Models.Document {
     currentMedication: string | undefined;
     treatmentConsent: boolean;
     dataProtectionpolicy: boolean;
+}
+
+export interface Appointment extends Models.Document {
+    userId: string;
+    patientId: string;
+    schedule: Date;
+    status: Status;
+    primaryPhysician: string;
+    reasin: string;
+    note: string;
+    cancellationReason: string | null;
 }

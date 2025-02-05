@@ -34,7 +34,7 @@ export const PatientFormValidation = z.object({
     .max(100, "Contact must be less than 100 characters long"),
     emergencyContactPhone:z.string()
     .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
-    primaryPhisician: z.string()
+    primaryPhysician: z.string()
     .min(2, "Contact must be at least 2 characters long")
     .max(100, "Contact must be less than 100 characters long"),
     insurancePolicyNumber:z.string()
@@ -57,7 +57,7 @@ export const PatientFormValidation = z.object({
 })
 
 export const CreateAppointmentSchema = z.object({
-    primaryPhisician: z.string()
+    primaryPhysician: z.string()
     .min(2, "Select at least one doctor")
     .max(100, "Contact must be less than 100 characters long"),
     schedule: z.coerce.date(),
@@ -69,7 +69,7 @@ export const CreateAppointmentSchema = z.object({
 })
 
 export const ScheduleAppointmentSchema = z.object({
-    primaryPhisician: z.string()
+    primaryPhysician: z.string()
     .min(2, "Select at least one doctor")
     .max(100, "Contact must be less than 100 characters long"),
     schedule: z.coerce.date(),
@@ -79,7 +79,7 @@ export const ScheduleAppointmentSchema = z.object({
 })
 
 export const CancelAppointmentSchema = z.object({
-    primaryPhisician: z.string()
+    primaryPhysician: z.string()
     .min(2, "Select at least one doctor")
     .max(100, "Contact must be less than 100 characters long"),
     schedule: z.coerce.date(),

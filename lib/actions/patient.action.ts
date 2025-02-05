@@ -2,10 +2,20 @@
 
 import { ID, Query } from "node-appwrite";
 import { parseStringify } from "../utils";
-import { BUCKET_ID, DATABASE_ID, databases, ENPOINT, PATIENTS_COLLECTION_ID, PROJECT_ID, storage, users } from "../appwrite.config";
+import { 
+    BUCKET_ID, 
+    DATABASE_ID,
+    ENDPOINT, 
+    PATIENTS_COLLECTION_ID, 
+    PROJECT_ID,
+    databases,  
+    storage, 
+    users 
+} from "../appwrite.config";
+import { CreateUserParams, RegisterUserParams } from "@/types";
 
 // create appwrite user
-export const createUser = async (user: createUserParams) => {
+export const createUser = async (user: CreateUserParams) => {
     try {
         const newUser = await users.create(
             ID.unique(),
@@ -25,7 +35,7 @@ export const createUser = async (user: createUserParams) => {
                 Query.equal("email", [user.email]),
             ]);
 
-            return documents?.users[0];
+            return documents.users[0];
         }
         console.error("An error occurred while creating a new user" , error);
     }
@@ -48,7 +58,7 @@ RegisterUserParams) => {
         let file;
 
         if(identificationType){
-            const inputFile = InputFile.fromBuffer(
+            const inputFile = identificationType && InputFile.fromBlob(
                 identificationType?.get('blobFile') as Blob,
                 identificationType?.get('filename') as string
             )
@@ -63,7 +73,7 @@ RegisterUserParams) => {
             {
                 identificationTypeId: file?.$id ? file.$id : null ,
                 identificationTypeUrl: file?.$id ?
-                    `${ENPOINT}/storage/buckets/${BUCKET_ID}/files/${file.$id}/view??project=${PROJECT_ID}`
+                    `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file.$id}/view??project=${PROJECT_ID}`
                     : null ,
                     ...patient,
             }
